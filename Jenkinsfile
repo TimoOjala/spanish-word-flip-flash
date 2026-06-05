@@ -41,9 +41,8 @@ pipeline {
                         }
                     }
                     steps {
-                        sh 'npm ci --include=dev'
-                        sh 'npm list rollup'
-                        sh 'npm list vite'
+                        sh 'rm -rf node_modules package-lock.json'
+                        sh 'npm install'
                         sh 'npx playwright test'
                     }
                 }
