@@ -41,6 +41,7 @@ pipeline {
                         }
                     }
                     steps {
+                        sh 'npm ci --include=dev'
                         sh 'npx playwright test'
                     }
                 }
