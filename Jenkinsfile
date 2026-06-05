@@ -24,7 +24,7 @@ pipeline {
                     agent {
                         docker {
                             image 'node:22-alpine'
-                            reuseNode true
+                            //reuseNode true
                         }
                     }
                     steps {
@@ -37,11 +37,11 @@ pipeline {
                     agent {
                         docker {
                             image 'mcr.microsoft.com/playwright:v1.60.0-jammy'
-                            reuseNode true
+                            //reuseNode true
                         }
                     }
                     steps {
-                        sh 'rm -rf node_modules'
+                        //sh 'rm -rf node_modules'
                         sh 'npm ci --include=dev'
                         sh 'npm install cssesc --save-dev'
                         sh 'npx playwright test'
@@ -66,14 +66,14 @@ pipeline {
             agent {
                 docker {
                     image 'mcr.microsoft.com/playwright:v1.60.0-jammy'
-                    reuseNode true
+                    //reuseNode true
                 }
             }
             environment {
                 E2E_BASE_URL = 'https://spanish-cards.netlify.app/'
             }
             steps {
-                sh 'rm -rf node_modules'
+                //sh 'rm -rf node_modules'
                 sh 'npm ci --include=dev'
                 sh 'npm install cssesc --save-dev'
                 sh 'npx playwright test'
