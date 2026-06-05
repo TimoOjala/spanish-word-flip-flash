@@ -13,7 +13,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'npm ci'
+                sh 'npm ci --include=dev'
                 sh 'npm run build'
             }
         }
