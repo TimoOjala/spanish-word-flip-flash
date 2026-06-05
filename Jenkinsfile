@@ -78,6 +78,12 @@ pipeline {
                 sh 'npm install cssesc --save-dev'
                 sh 'npx playwright test'
             }
+            post {
+                always {
+                    publishHTML(allowMissing: true, alwaysLinkToLastBuild: true, icon:'',keepAll: false, reportDir: 'reports-e2e/html/', reportFiles: 'index.html', reportName: 'Playwright Test HTML Report', reportTitles:'', useWrapperFileDirectly:true)
+                    //junit stdioRetention: 'ALL', testResults: 'reports-e2e/junit/*.xml'
+                }
+            }
         }
     }
 }
