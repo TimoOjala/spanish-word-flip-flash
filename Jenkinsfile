@@ -42,8 +42,8 @@ pipeline {
                     }
                     steps {
                         sh 'npm ci --include=dev'
-                        npm list rollup
-                        npm list vite
+                        sh 'npm list rollup'
+                        sh 'npm list vite'
                         sh 'npx playwright test'
                     }
                 }
